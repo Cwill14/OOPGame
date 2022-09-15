@@ -3,7 +3,32 @@
         <link rel="stylesheet" href="./css/index.css" type="text/css">
     </head>
     <body>
-        <h1>Hello World</h1>
-        <script src="./index.js"></script>
+        <h1>OOP Time!</h1>
+
+        <main>
+            <!-- <h2>Characters</h2>
+            <input type="radio" name="character" value="Bob" />
+            <input type="radio" name="character" value="Amy" /> -->
+            <div class="player">
+                <div class="player-stats">
+                    <!-- <label>Name<p id="player-name"></p></label> -->
+                    <label>Health<p id="player-health">50</p></label>
+                    <label>Max Health<p id="player-max-health"></p></label>
+                    <label>Energy<p id="player-energy"></p></label>  
+                    <label>Max Energy<p id="player-max-energy"></p></label> 
+                </div>
+                <button class="punch" onclick="punch('player', 'enemy')">Punch</button>
+                <button class="kick" onclick="kick('player', 'enemy')">Kick</button>
+            </div>
+            <div class="enemy">
+                <!-- <label>Name<p id="enemy-name"></p></label> -->
+                <label>Health<p id="enemy-health">50</p></label>
+                <label>Max Health<p id="enemy-max-health"></p></label>
+                <label>Energy<p id="enemy-energy"></p></label>  
+                <label>Max Energy<p id="enemy-max-energy"></p></label>  
+            </div>
+        </main>
+
+        <script src="./js/index.js"></script>
     </body>
 </HTML>
