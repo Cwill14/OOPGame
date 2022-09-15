@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css" type="text/css">
+    <title>Battle</title>
+</head>
+<body>
+    <nav>
+        <a href="./index.html">Home</a>
+    </nav>
+    <main>
+        <!-- <h2>Characters</h2>
+        <input type="radio" name="character" value="Bob" />
+        <input type="radio" name="character" value="Amy" /> -->
+        <div class="player">
+            <div class="player-stats">
+                <!-- <label>Name<p id="player-name"></p></label> -->
+                <label>Health<p id="player-health">50</p></label>
+                <label>Max Health<p id="player-max-health"></p></label>
+                <label>Energy<p id="player-energy"></p></label>  
+                <label>Max Energy<p id="player-max-energy"></p></label> 
+            </div>
+            <button class="punch" onclick="punch('player', 'enemy')">Punch</button>
+            <button class="kick" onclick="kick('player', 'enemy')">Kick</button>
+        </div>
+        <div class="enemy">
+            <!-- <label>Name<p id="enemy-name"></p></label> -->
+            <label>Health<p id="enemy-health" value=""></p></label>
+            <label>Max Health<p id="enemy-max-health" value=""></p></label>
+            <label>Energy<p id="enemy-energy" value=""></p></label>  
+            <label>Max Energy<p id="enemy-max-energy" value=""></p></label>  
+        </div>
+    </main>
+</body>
+</html>

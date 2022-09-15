@@ -4,11 +4,16 @@ import { playerList } from "./database.js";
 function addPlayer(p) {
     const player = new Player(p)
     playerList.push(player)
+    localStorage.setItem("list", playerList)
 }
-
-function punch(attacker, target) {
-    document.getElementById("enemy-health").write(`${target.health - 5}`)
-}
-function kick(attacker, target) {
-
+const createCharBtn = document.querySelector(".create-char-btn");
+createCharBtn.addEventListener("click", addPlayer())
+// function addPlayer(p) {
+//     const player = new Player(p)
+//     playerList.push(player)
+//     localStorage.setItem("list", playerList)
+// }
+// 
+function getPlayerList() {
+    return playerList;
 }

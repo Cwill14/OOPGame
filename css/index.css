@@ -2,6 +2,14 @@ body {
     background-color: black;
     color: white;
 }
+a {
+    text-decoration: none;
+    color: darkgrey;
+}
+a:hover {
+    color: navy;
+    font-size: larger;
+}
 main {
     display: flex;
     justify-content: center;
