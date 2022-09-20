@@ -1,3 +1,5 @@
+const prompt = require('prompt-sync')();
+
 checkStatus = function(player,target, action) {
 	if (player.status === "dead") return `${player.name} is dead and can't use actions!`
 	else if (target.status === "dead") return `${target.name} is dead and can't be targeted!`
@@ -176,14 +178,98 @@ class Dummy extends Player {
 	}
 }
 
-const warriorDude = new Warrior("warriorDude")
-const mageBro = new Mage("mageBro")
-const testDummy = new Dummy("testDummy")
-const testDummy2 = new Dummy("testDummy2", 222)
+// const warriorDude = new Warrior("warriorDude")
+// const mageBro = new Mage("mageBro")
+// const testDummy = new Dummy("testDummy")
+// const testDummy2 = new Dummy("testDummy2", 222)
 // testDummy2.health = 1000;
-console.log(testDummy2.getInfo())
+// console.log(testDummy2.getInfo())
 // console.log("---------------------------")
 // console.log(warriorDude.slash(mageBro))
 // console.log(mageBro.getInfo())
 // console.log(warriorDude.getInfo())
 // console.log("---------------------------")
+const validClasses = ['Warrior', 'Mage']
+let playerList = []
+let playerCount = 0
+
+const validateClass = type => {
+	type = type.charAt(0).toUpperCase() + type.slice(1).toLowerCase()
+	if(validClasses.includes(type)) {
+		console.log(`You selected ${type}`)
+		// playerCount++
+		return type		
+	} else {
+		console.log(`${type} is an invalid class type, please try again!`)
+		type = prompt('Which class are you, Warrior or Mage? ');
+		return validateClass(type)
+	}
+}
+// classType = validateClass(classType)
+// console.log("type after")
+const createPlayerObject = (name, classType) => {
+	let p = null;
+	switch(classType) {
+		case 'Warrior':
+			p = new Warrior(name)
+			break
+		case 'Mage':
+			p = new Mage(name)
+			break
+		default:
+			p = new Dummy(name)
+			break
+	}
+	playerCount++
+	return p
+}
+
+const createNewPlayer = () => {
+	const name = prompt(`Player ${playerCount}, what is your name? `);
+	console.log(`Hey there ${name}!`);
+	let classType = prompt('Which class are you, Warrior or Mage? ');
+	classType = validateClass(classType)
+	return createPlayerObject(name, classType)
+}
+
+// let i;
+// console.log(this['player'+playerCount] = "test")
+// let `player${playerCount}` = createNewPlayer()
+// let playerList = []
+// this['player'+playerCount] = "test"
+for (let i = 0; i < 3; i++) {
+	playerList.push(this['player'+playerCount] = new Dummy(`test${playerCount}`))	
+	playerCount++
+}
+console.log(playerList)
+console.log(playerCount)
+
+// 	BELOW JUST NEEDS DYNAMIC VARIABLE TO TEST
+// const getPlayers = () => {
+// 	let done = false
+// 	while(done === false) {
+// 		// let ans = prompt('Are you ready to start playing? Y or N')
+// 		const getAns = () => {
+// 			let `player${playerCount}` = createNewPlayer()
+// 			let ans = prompt('Are you ready to start playing? Y or N')
+// 			if(ans === 'Y') {
+// 				done = true
+// 				break
+// 			} else {
+// 				return getAns()
+// 			}
+			
+// 		}
+// 	}
+	
+// }
+// const startGame = () => {
+// 	const player1 = createNewPlayer()
+// 	getPlayers()
+// 	while(player1.health > 0 && player2.health > 0) {
+// 		console.log(`${player1.name}, it is your turn`)
+//		player2.health = 0
+// 	}
+// }
+
+// startGame();
